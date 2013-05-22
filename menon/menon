@@ -1,0 +1,7 @@
+#!/bin/sh
+mkdir app 
+echo "A new app!" > index.html
+mv index.html /home/jsc/menon/app
+touch menon.db
+ln -s /home/jsc/menon /home/jsc/menon/app
+ln -s /home/jsc/menon/app /usr/pkg/share/httpd/htdocs

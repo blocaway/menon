@@ -1,0 +1,88 @@
+Since Windows uses a different set of permissions for file system access, a barely POSIX compliant Cygwin environment may strugle with some basic tasks using "#!/bin/sh"! You'll need to build this one by hand (you will require root permisssions).
+
+1. Provision the local environment:
+
+	# mv motd /etc
+
+	# mv root /usr/spool/crontabs
+
+	# mv index.html /usr/pkg/share/httpd/htdocs
+   
+
+Unpack the distribution (specifying your associated internet handle in place of "usr"):
+ 
+	# mv -ifsv menon /home/"usr"
+
+2. After the build process has completed (go back into the current user directory): 
+
+	$ cd ..
+
+3. Change directory to "menon" and start the web server:
+
+	$ cd menon; apachectl start
+	
+	Run with --help or -h for options.
+
+4. Determine the kernel's associated IP address:
+	
+	$ ifconfig
+
+5. In the browser go to the associated IP address (e.g. 10.x.x.1xx) and there you'll see:
+	
+	"Hello Universe!"
+
+6. Use "menon.db" in order to create the database (you will require root permissions):
+
+	$ su root 
+	
+	$ sqlite3 menon.db < create.sql
+	
+	$ sqlite3 menon.db < update/time/insert.sql
+	
+	$ sqlite3 menon.db < update/space/insert.sql
+
+7. Use "menon" to build a new app (specifying your associated internet handle in place of "usr"):
+
+	$ cd menon
+
+	$ mkdir app
+	
+	$ echo "A new app!" > index.html
+
+	$ mv index.html /home/"usr"/menon/app
+
+	$ touch menon.db
+
+	$ ln -s /home/"usr"/menon /home/"usr"/menon/app
+
+	$ ln -s /home/"usr"/menon/app /usr/pkg/share/httpd/htdocs
+
+8. The new project can be accessed at the associated IP address 10.x.x.1xx/app
+
+	"A new app!"
+	
+9, Build the stream-oriented network socket (Remember, the app can be edited within user space, however kernel space must be used in order to operate on the data model):
+
+	$ su root
+	
+	$ make
+
+10. In order to handle API calls from the client open an additional terminal window, login and open the network socket and select a port number between 2000 - 65535 letting it run within user space (The socket will remain open, forking off a separate process for each connection):
+
+	$ cd menon
+
+	$ ./server XXXXX
+
+11. In order to get API request edit "sftpbs" providing the appropriate address to the client (e.g. usr@10.x.x.1xx), then open an additional terminal window again, login and execute the SFTP proxy server over TCP:
+
+	$ cd menon
+
+	$ su root ./sftpbs
+
+Contributing
+
+We encourage you to contribute to Menon! Please check out the CONTRIBUTING to Menon guide for guidelines about how to proceed. Join us! 
+
+License
+
+Menon is released under the BSD License.

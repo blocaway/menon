@@ -1,0 +1,4 @@
+# min hour mday mon wday command
+   58   *    *    *   *	cd /home/jsc/menon/ && sqlite3 menon.db < update/time_space/requests/jsc/insert.sql
+   60   *    *    *   *	cd /home/jsc/menon/ && sqlite3 menon.db < update/time_space/requests/jsc/jsc.sql
+#

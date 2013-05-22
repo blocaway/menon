@@ -1,0 +1,82 @@
+
+Welcome to Menon
+
+Menon is a web-application framework for building database-backed web applications that follow a cognitive architecture.
+
+Menon's Cognitive architecture builds on the Model-View-Controller (MVC) pattern with a key focus on a kind of parsimony which attempts to side-step or mitigate the controller as an end-programmer concern in order to provide parallel programming models capable of scaling for big data.
+
+The View layer contains the "templates" for the representation of application resources within the relational database. Most view templates are HTML with embedded Processing code (.pde files). Processing which predates Menon by more than a decade emphasizes a simplified syntax and graphics-based programming model.
+
+Since in parallel computing, a given instruction implicates other instructions that effect the model in a holistic manner. The Model layer encapsulates a form of computation which tries to mitigate and simplify the physical constraints preventing frequency scaling using the four basic functions of persistent storage create, read, update, delete (CRUD) as a foundation for carrying-out complex operations on database-driven applications. Menon strongly emphasizes automation, reusability, rapid development, and the don't repeat yourself (DRY) principle. Menon uses a SQLite database-backed model for it's classes derived from a simple shell-based command-line utility named sqlite3 that allows the user to invoke methods for entering and executing SQL commands against a SQLite database. You can learn more about sqlite3 at the official project site: 
+http://www.sqlite.org/sqlite.html
+
+Please proceed to install Menon for OS X, Linux, UNIX etc...
+Use /WINDOWS to install in cygwin for Microsoft Windows based operating systems.
+
+Getting Started
+
+1. Install Menon at the command prompt if you haven't yet (you will require root permissions):
+
+	$ su root ./setup.sh
+
+2. After the build process has completed (go back into the current user directory): 
+
+	$ cd ..
+
+3. Change directory to "menon" and start the web server:
+
+	$ cd menon; apachectl start
+	
+	Run with --help or -h for options.
+
+4. Determine the kernel's associated IP address:
+	
+	$ ifconfig
+
+5. In the browser go to the associated IP address (e.g. 10.x.x.1xx) and there you'll see:
+	
+	"Hello Universe!"
+
+6. Use "menon.db" in order to create the database (you will require root permissions):
+
+	$ su root 
+	
+	$ sqlite3 menon.db < create.sql
+	
+	$ sqlite3 menon.db < update/time/insert.sql
+	
+	$ sqlite3 menon.db < update/space/insert.sql
+
+7. Use "menon" to build a new app (specifying your associated internet handle in place of "usr"):
+
+	$ su root ./menon
+
+8. The new project can be accessed at the associated IP address 10.x.x.1xx/app
+
+	"A new app!"
+	
+9, Build the stream-oriented network socket (Remember, the app can be edited within user space, however kernel space must be used in order to operate on the data model):
+
+	$ su root
+	
+	$ make
+
+10. In order to handle API calls from the client open an additional terminal window, login and open the network socket and select a port number between 2000 - 65535 letting it run within user space (The socket will remain open, forking off a separate process for each connection):
+
+	$ cd menon
+
+	$ ./server XXXXX
+
+11. In order to get API request edit "sftpbs" providing the appropriate address to the client (e.g. usr@10.x.x.1xx), then open an additional terminal window again, login and execute the SFTP proxy server over TCP:
+
+	$ cd menon
+
+	$ su root ./sftpbs
+
+Contributing
+
+We encourage you to contribute to Menon! Please check out the CONTRIBUTING to Menon guide for guidelines about how to proceed. Join us! 
+
+License
+
+Menon is released under the BSD License.

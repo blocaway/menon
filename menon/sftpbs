@@ -1,0 +1,2 @@
+#! /bin/sh
+sftp jsc@10.216.152.101 < sftpcs
