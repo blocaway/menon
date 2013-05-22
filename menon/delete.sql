@@ -2,4 +2,4 @@
 .header on
 .separator |
 SELECT * FROM space; 
-DELETE FROM space WHERE id = 043;
+DELETE FROM space WHERE id = 173985189916;

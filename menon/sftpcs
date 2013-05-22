@@ -1,7 +1,7 @@
 version
 cd geo
-get jsc.sql
-lcd update/time_space/requests/jsc
+get usr.sql
+lcd update/time_space/requests/usr
 cd update/space
-put /home/jsc/menon/update/space/insert.sql
+put /home/usr/menon/update/space/insert.sql
 bye

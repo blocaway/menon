@@ -2,6 +2,6 @@
 .header on
 .separator |
 SELECT * FROM space;
-
-UPDATE space SET jurisdiction = "Atlantic"
-    WHERE id = 0;
+UPDATE space 
+SET id = 1050234424097
+WHERE id = 11246901702;

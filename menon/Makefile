@@ -1,6 +1,4 @@
 all:	server
-
 CFLAGS=-Wall -g
-
 clean:
-		rm -f server
+	rm -f server

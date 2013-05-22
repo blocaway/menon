@@ -1,1 +1,1 @@
-SELECT * FROM space where state='Ontario' OR space_city='Toronto';
+SELECT * FROM space where state='California' OR space_city='';

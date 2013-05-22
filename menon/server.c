@@ -1,4 +1,4 @@
-/*** Use this stream-oriented service for recieving API 
+/*** Use this stream-oriented service for receiving API 
    requests over TCP. The port number is passed as an argument 
    in the internet domain. This version runs forever, 
    forking off a separate process for each connection.

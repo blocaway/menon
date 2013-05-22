@@ -13,13 +13,19 @@ Unpack the distribution (specifying your associated internet handle in place of 
  
 	# mv -ifsv menon /home/"usr"
 
+	# mv -ifsv templates /usr/pkg/share/httpd/htdocs
+
 2. After the build process has completed (go back into the current user directory): 
 
-	$ cd ..
+	# cd ..
+
+	# ln -s /home/"usr"/menon /usr/pkg/share/httpd/htdocs/templates/TSO
+
+	# ln -s /home/"usr"/menon /usr/pkg/share/httpd/htdocs/templates/test
 
 3. Change directory to "menon" and start the web server:
 
-	$ cd menon; apachectl start
+	# cd menon; apachectl start
 	
 	Run with --help or -h for options.
 
@@ -78,6 +84,24 @@ Unpack the distribution (specifying your associated internet handle in place of 
 	$ cd menon
 
 	$ su root ./sftpbs
+
+12. To completely remove the distribution:
+
+	cd ..
+
+	rm -f /etc/motd
+
+	rm -f /usr/spool/crontabs/root
+
+	rm -rf menon
+
+	rm -rf blocaway-menonstack-0.8-minix-3.2.0
+
+	rm -f /usr/pkg/share/httpd/htdocs/index.html
+
+	rm -rf /usr/pkg/share/httpd/htdocs/templates
+
+	rm -rf /usr/pkg/share/httpd/htdocs/app
 
 Contributing
 
